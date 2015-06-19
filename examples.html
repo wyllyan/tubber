@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tubber - Examples</title>
+
+		<link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+		<link rel="stylesheet" href="fancybox/jquery.fancybox.css">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="example" id="example1">
+				<h2>
+					<small>Example 1</small><br>
+					Simple last video
+					<span class="show-code" title="Show the code">?</span>
+				</h2>
+				<div class="code"><script src="https://gist.github.com/wyllyan/2ee8df13c3a6b8502a39.js"></script></div>
+				<div class="example-container" id="example1-container"></div>
+			</div>
+
+			<div class="example" id="example2">
+				<h2>
+					<small>Example 2</small><br>
+					Gallery with videos opening in their YouTube pages
+					<span class="loading" id="example2-loading"></span>
+					<span class="show-code" title="Show the code">?</span>
+				</h2>
+				<div class="code"><script src="https://gist.github.com/wyllyan/15cb8bea8489928d771d.js"></script></div>
+				<div class="example-container" id="example2-container"></div>
+				<div class="pagination">
+					<span id="example2-prev-page">< Previous</span>
+					<span id="example2-next-page">Next ></span>
+				</div>
+			</div>
+
+			<div class="example" id="example3">
+				<h2>
+					<small>Example 3</small><br>
+					Gallery with embed videos
+					<span class="loading" id="example3-loading"></span>
+					<span class="show-code" title="Show the code">?</span>
+				</h2>
+				<div class="code"><script src="https://gist.github.com/wyllyan/7fa224fc87027047b657.js"></script></div>
+				<div class="example-container" id="example3-container"></div>
+				<div class="pagination">
+					<span id="example3-prev-page">< Previous</span>
+					<span id="example3-next-page">Next ></span>
+				</div>
+			</div>
+
+			<div class="example" id="example4">
+				<h2>
+					<small>Example 4</small><br>
+					Gallery with videos opening through the Fancybox
+					<span class="loading" id="example4-loading"></span>
+					<span class="show-code" title="Show the code">?</span>
+				</h2>
+				<div class="code"><script src="https://gist.github.com/wyllyan/02275d09f127388103ec.js"></script></div>
+				<div class="example-container" id="example4-container"></div>
+				<div class="pagination">
+					<span id="example4-prev-page">< Previous</span>
+					<span id="example4-next-page">Next ></span>
+				</div>
+			</div>
+
+			<div class="example" id="example5">
+				<h2>
+					<small>Example 5</small><br>
+					Gallery with thumbnails and an area to show the selected video
+					<span class="loading" id="example5-loading"></span>
+					<span class="show-code" title="Show the code">?</span>
+				</h2>
+				<div class="code"><script src="https://gist.github.com/wyllyan/1cab01b6d95fc9ec0227.js"></script></div>
+				<div class="media-viewer" id="example5-media-viewer"></div>
+				<div class="thumbnails">
+					<div class="example-container" id="example5-container"></div>
+					<div class="pagination">
+						<span id="example5-prev-page">< Previous</span>
+						<span id="example5-next-page">Next ></span>
+					</div>
+				</div>				
+			</div>
+		</div>
+
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="fancybox/jquery.fancybox.pack.js"></script>
+		<script src="jquery.tubber.min.js"></script>
+		
+		<script>
+			$.fn.tubber.defaults.apiKey = 'AIzaSyDqzmfeV62e1PAPRvZggro0P2DXhuNWW3k';
+
+			// Example 1 - Simple last video
+			$('#example1-container').tubber({
+				username: 'youtube',
+				itemsPerPage: 1
+			});
+
+			// Example 2 - Gallery with videos opening in their YouTube pages
+			$('#example2-container').tubber({
+				playlistId: 'PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-',
+				itemsPerPage: 18,
+				embedVideo: false,
+				loadingControl: $('#example2-loading'),
+				prevPageControl: $('#example2-prev-page'),
+				nextPageControl: $('#example2-next-page'),
+				templates: {
+					thumbnail: '<img src="{{image_medium}}">'
+				}
+			});
+
+			// Example 3 - Gallery with embed videos
+			$('#example3-container').tubber({
+				username: 'youtube',
+				itemsPerPage: 6,
+				loadingControl: $('#example3-loading'),
+				prevPageControl: $('#example3-prev-page'),
+				nextPageControl: $('#example3-next-page')
+			});
+
+			// Example 4 - Gallery with videos opening through the Fancybox
+			$('#example4-container').tubber({
+				playlistId: 'PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-',
+				itemsPerPage: 10,
+				embedVideo: false,
+				showVideoTitle: true,
+				loadingControl: $('#example4-loading'),
+				prevPageControl: $('#example4-prev-page'),
+				nextPageControl: $('#example4-next-page'),
+				mediaViewer: function (videoId) {
+					$.fancybox.open({
+						type: 'html',
+						content: '<iframe width="720" height="405" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" frameborder="0" allowfullscreen></iframe>',
+						padding: 0,
+						helpers : {
+					        overlay : {
+					            css : {
+					                'background' : 'rgba(0, 0, 0, .85)'
+					            }
+					        }
+					    }
+					});
+				},
+				templates: {
+					thumbnail: '<img src="{{image_medium}}">'
+				}
+			});
+
+			// Example 5 - Gallery with thumbnails and an area to show the selected video
+			$('#example5-container').tubber({
+				username: 'youtube',
+				itemsPerPage: 6,
+				embedVideo: false,
+				loadingControl: $('#example5-loading'),
+				prevPageControl: $('#example5-prev-page'),
+				nextPageControl: $('#example5-next-page'),
+				mediaViewer: $('#example5-media-viewer'),
+				templates: {
+					thumbnail: '<img src="{{image_medium}}">'
+				}
+			});
+
+			$('.show-code').click(function () {
+				$(this).closest('.example').find('.code').toggle();
+			});
+		</script>
+	</body>
+</html>

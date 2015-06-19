@@ -1,0 +1,259 @@
+body {
+	font-family: 'Lato', sans-serif;
+	color: #E74C3C;
+}
+
+small {
+	color: #9B9B9B;
+}
+
+img {
+	max-width: 100%;
+}
+
+.container {
+	max-width: 970px;
+	margin: auto;
+}
+
+/*
+ * Main page *
+ */
+
+.main-page {
+	text-align: center;
+}
+
+.plugin-name {
+	margin: 50px 0;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 144px;
+	font-weight: normal;
+	letter-spacing: -5px;
+}
+
+.plugin-description {
+	margin: 0;
+	font-size: 48px;
+	font-weight: normal;
+}
+
+.menu {
+	position: relative;
+	overflow: hidden;
+	max-width: 864px;
+	margin: 50px auto;
+	border-radius: 2px;
+}
+
+.menu .background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background: #E74C3C;
+	opacity: .80;
+}
+
+.menu .thumbnails img {
+	float: left;
+	width: 54px;
+	-webkit-filter:blur(3px);
+    filter:blur(3px);
+}
+
+.menu a,
+.menu small {
+	color: #fff;
+}
+
+.menu a {
+	font-size: 20px;	
+	text-decoration: none;
+	transition: opacity 0.1s;
+}
+
+.menu a:hover {
+	opacity: .7;
+}
+
+.menu small {
+	font-size: 18px;
+}
+
+.menu ul {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;	
+	right: 0;
+	z-index: 20;
+	height: 25px;
+	margin: auto;
+	padding: 0;
+	list-style-type: none;
+}
+
+.menu ul li {
+	display: inline-block;
+	margin: 0 15px;
+}
+
+.plugin-current-version {
+	font-size: 20px;
+	color: #9B9B9B;
+}
+
+/*
+ * Examples *
+ */
+
+.example .show-code {
+	display: inline-block;
+	float: right;
+	width: 20px;
+	height: 20px;
+	font-size: 15px;
+	text-align: center;
+	color: #fff;
+	background: #E74C3C;
+	border-radius: 100%;
+	cursor: pointer;
+}
+
+.example .code {
+	display: none;
+}
+
+.example .loading {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-left: 5px;
+	background: url(loading.gif) no-repeat;
+	vertical-align: middle;
+}
+
+.example .pagination {
+	padding: 10px 0;
+	text-align: center;
+}
+
+.example .pagination span {
+	display: inline-block;
+	padding: 8px;
+	margin: 0 1px;
+	border: 1px solid #E74C3C;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.example .pagination span.disabled {
+	cursor: default;
+}
+
+.example .pagination span:hover:not(.disabled) {
+	color: #fff;
+	background: #E74C3C;
+}
+
+.example-container {
+	overflow: hidden;
+	margin: 0 -5px;
+}
+
+.example-container iframe,
+.example-container img {
+	display: block;
+}
+
+.example-container .video-item {
+	float: left;
+	box-sizing: border-box;
+	padding: 5px;
+	cursor: pointer;
+}
+
+/* Example 1 - Simple last video */
+
+#example1 iframe {
+	width: 310px;
+	height: 175px;
+}
+
+/* Example 2 - Gallery with videos opening in their YouTube pages */
+
+#example2 .video-item {
+	width: 16.66666666666667%;
+	transition: opacity 0.3s;
+}
+
+#example2 .example-container:hover .video-item {
+	opacity: .8;
+}
+
+#example2 .example-container:hover .video-item:hover {
+	opacity: 1;
+}
+
+#example2 .video-item img {
+	max-width: 100%;
+}
+
+/* Example 3 - Gallery with embed videos */
+
+#example3 .video-item {
+	width: 33.33333333333333%;
+}
+
+#example3 .video-item iframe {
+	width: 100%;
+	height: 175px;
+}
+
+/* Example 4 - Gallery with videos opening through the Fancybox */
+
+#example4 .video-item {
+	width: 20%;
+}
+
+#example4 .video-item:nth-child(6n) {
+	clear: both;
+}
+
+#example4 .video-item .title {
+	display: block;
+	margin-top: 5px;
+}
+
+/* Example 5 - Gallery with thumbnails and an area to show the selected video */
+
+#example5 .media-viewer {
+	float: left;
+}
+
+#example5 .media-viewer iframe {
+	width: 560px;
+	height: 315px;
+}
+
+#example5 .thumbnails {
+	overflow: hidden;
+}
+
+#example5 .example-container {
+	margin: 0;
+}
+
+#example5 .video-item {
+	overflow: hidden;
+	width: 50%;
+	height: 105px;
+	padding: 0;
+}
+
+#example5 .video-item.active {
+	opacity: .50;
+}

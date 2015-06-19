@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Tubber - jQuery plugin for YouTube</title>
+
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu:400|Lato:300" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="main-page">
+			<div class="container">
+				<h1 class="plugin-name">Tubber</h1>
+				<h2 class="plugin-description">A simple jQuery plugin that puts YouTube videos on your page</h2>
+				
+				<div class="menu">
+					<ul>
+						<li><a href="https://raw.githubusercontent.com/wyllyan/tubber/master/dist/jquery.tubber.min.js" title="Production" target="_blank">Production <small>(recommended)</small> 5 KB</a></li>
+						<li><a href="https://raw.githubusercontent.com/wyllyan/tubber/master/src/jquery.tubber.js" title="Development" target="_blank">Development 11 KB</a></li>	
+						<li><a href="https://github.com/wyllyan/tubber/blob/master/Documentation.md" title="Documentation" target="_blank">Documentation</a></li>	
+						<li><a href="examples.html" title="Examples" target="_blank">Examples</a></li>	
+					</ul>
+
+					<div class="background"></div>
+					<div class="thumbnails" id="popular-videos"></div>
+				</div>
+
+				<a href="https://github.com/wyllyan/tubber" title="View project on GitHub" target="_blank"><img src="github_icon.png" alt="GitHub"></a>
+				<p class="plugin-current-version">Currrent version: 0.1.0</p>
+			</div>
+		</div>
+
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="jquery.tubber.min.js"></script>
+
+		<script>
+			$('#popular-videos').tubber({
+				apiKey: 'AIzaSyDqzmfeV62e1PAPRvZggro0P2DXhuNWW3k',
+				playlistId: 'PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-',
+				itemsPerPage: 32,
+				embedVideo: false,
+				templates: {
+					thumbnail: '<img src="{{image_medium}}">'
+				}
+			});
+		</script>
+	</body>
+</html>
