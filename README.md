@@ -1,4 +1,4 @@
-# [Tubber]()
+# [Tubber](http://wyllyan.github.io/tubber/)
 
 A simple plugin that's able to show YouTube videos on your page. It's compatible with YouTube Data API (v3).
 
@@ -20,7 +20,7 @@ $('#example1-container').tubber({
 
 ## Examples
 
-- [Click to view some use examples of Tubber](Documentation.md#options-reference)
+- [Click to view some use examples of Tubber](http://wyllyan.github.io/tubber/examples.html)
 
 ## Documentation
 
