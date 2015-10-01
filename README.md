@@ -13,9 +13,16 @@ You can use it how you want. Feel free to let your feedback through the issues s
 
 ```javascript
 $('#example1-container').tubber({
+	apiKey: 'YOURDEVELOPERKEY',
 	username: 'youtube',
 	itemsPerPage: 1
 });
+```
+
+If you have to use Tubber many times in a page (to show several galleries, for example), you can define the API key once for all calls:
+
+```javascript
+$.fn.tubber.defaults.apiKey = 'YOURDEVELOPERKEY';
 ```
 
 ## Examples
